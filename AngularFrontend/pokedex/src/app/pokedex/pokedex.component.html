@@ -1,0 +1,7 @@
+<div class="sidebar"></div>
+<poke-header></poke-header>
+  <div class="pokecards-container">
+    <poke-card class = "pokecards-card" *ngFor="let pokemon of (pokelist | async)" [pokemon]="pokemon"></poke-card>
+  </div>
+
+
