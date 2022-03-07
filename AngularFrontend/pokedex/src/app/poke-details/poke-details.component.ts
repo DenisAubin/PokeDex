@@ -23,7 +23,7 @@ export class PokeDetailsComponent implements OnInit {
 
   public color() {
     if (this.pokemon) {
-      return this.pokeService.typeToColor(this.pokemon.type1);
+      return this.pokeService.pokeToGradient(this.pokemon);
     }
     return 'black';
   }

@@ -1,7 +1,7 @@
 <ng-container *ngIf="pokemon; else noPoke">
   <div class="pokeDetails">
     <img
-      [ngStyle]="{ 'background-color': color() }"
+      [ngStyle]="{ 'background': color() }"
       src="{{ pokemon.img_url }}"
       alt="Photo of a Shiba Inu"
     />

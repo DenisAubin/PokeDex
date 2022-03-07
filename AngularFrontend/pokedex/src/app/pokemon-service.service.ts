@@ -37,6 +37,16 @@ export class PokemonServiceService {
     return this.pokelist[id-1];
   }
 
+  public pokeToGradient(poke : Pokemon){
+    if( poke.type1 && poke.type2){
+      const color1=this.typeToColor(poke.type1);
+      const color2=this.typeToColor(poke.type2);
+      return "radial-gradient(circle, " +color1+" 75%, " + color2 + " 100%)";
+    }else{
+      return this.typeToColor(poke.type1);
+    }
+  }
+
   public typeToColor(type: PokeType) {
     switch (type) {
       case PokeType.Acier: {
