@@ -1,17 +1,17 @@
 :host{
   display: block;
-  border: 0.05em solid rgba(0, 0, 0, 0.5);
   box-shadow: 0px 0px 0.25em black;
   border-radius: 0.5em;
-  padding: 1em;
   margin: 1em;
   background-color: rgb(225, 225, 225);
 }
 
-.name{
-  font-size: large;
+.header-image {
+  background-image: url('../../assets/img/pokeball.png');
+  background-size: cover;
 }
 
-.id{
-  font-size: medium;
+mat-card-content{
+  display: flex;
+  justify-content: space-around;
 }

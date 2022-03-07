@@ -1,2 +1,25 @@
-<div class="name">Nom : {{pokemon?.name}}</div>
-<div class="id">Id: {{pokemon?.id}}</div>
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="header-image"></div>
+    <mat-card-title>{{ pokemon?.name }}</mat-card-title>
+    <mat-card-subtitle>{{ pokemon?.id }}</mat-card-subtitle>
+  </mat-card-header>
+  <ng-container *ngIf="pokemon?.img_url; else noImg">
+    <img
+      mat-card-image
+      src="{{ pokemon?.img_url }}"
+      alt="Can't charge the image"
+    />
+  </ng-container>
+  <ng-template #noImg>
+    <img
+      mat-card-image
+      src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+      alt="No photo"
+    />
+  </ng-template>
+  <mat-card-content>
+    <div>{{ pokemon?.type1 }}</div>
+    <div *ngIf="pokemon?.type2">{{ pokemon?.type2 }}</div>
+  </mat-card-content>
+</mat-card>

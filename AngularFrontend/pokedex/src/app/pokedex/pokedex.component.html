@@ -1,7 +1,16 @@
 <div class="sidebar"></div>
 <poke-header></poke-header>
+<div class="poke-content">
   <div class="pokecards-container">
-    <poke-card class = "pokecards-card" *ngFor="let pokemon of (pokelist | async)" [pokemon]="pokemon"></poke-card>
+    <poke-card
+      *ngFor="let pokemon of pokeService.getList()"
+      class="pokecards-card"
+      [pokemon]="pokemon"
+      (click)="onPokeClick(pokemon)"
+    ></poke-card>
   </div>
-
-
+  <div class="separator"></div>
+  <div class="poke-details">
+    <poke-details [pokemon]="selectedPoke" (pokeChange)="onPokeChange($event)"></poke-details>
+  </div>
+</div>

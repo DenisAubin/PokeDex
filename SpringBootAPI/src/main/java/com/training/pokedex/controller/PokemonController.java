@@ -5,8 +5,6 @@ import com.training.pokedex.service.PokemonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
-
 @RestController
 @RequestMapping("/poke")
 public class PokemonController {
@@ -23,26 +21,26 @@ public class PokemonController {
     }
 
     @GetMapping("")
-    public Pokemon displayPoke(){
+    public Pokemon displayPoke() {
         System.out.println("Tentative d'affichage d'un pokemon");
         Pokemon poke = new Pokemon();
-        poke.name="Bulbizarre";
-        poke.id=1;
+        poke.name = "Bulbizarre";
+        poke.id = 1;
         return poke;
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/{id}")
-    public Pokemon displayPokeById(@PathVariable("id") Long pokeId){
+    public Pokemon displayPokeById(@PathVariable("id") Long pokeId) {
         System.out.println("Tentative d'affichage du poke" + pokeId);
         return pokemonService.getPokeById(pokeId);
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/pokeList")
-    public Iterable<Pokemon> displayPokeList(){
+    public Iterable<Pokemon> displayPokeList() {
         System.out.println("Tentative d'affichage de lu pokedex");
         return pokemonService.getPokeList();
     }
-
 
 }

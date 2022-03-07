@@ -1,0 +1,25 @@
+:host{
+  background-color: grey;
+  height: calc(100%/2 - 2em - 12px);
+  background-color: grey;
+}
+
+.pokeDetails{
+  display: flex;
+  flex-direction: row;
+  padding-top: 1em;
+  padding-left: 1em;
+  gap: 1em;
+}
+
+img{
+  width: 23em;
+  height: 23em;
+  border:solid;
+  border-radius: 10px;
+}
+
+a:hover{
+  color: gold;
+}
+
