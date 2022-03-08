@@ -12,6 +12,7 @@ export class PokedexComponent implements OnInit {
 
   selectedPoke : Pokemon | undefined;
   pokeService: PokemonServiceService;
+  isActive=false;
 
   constructor(pokeService : PokemonServiceService) {
     this.pokeService=pokeService
@@ -22,12 +23,20 @@ export class PokedexComponent implements OnInit {
   }
 
   onPokeClick(poke : Pokemon){
-    console.log(poke);
     this.selectedPoke=poke;
+    this.isActive = !this.isActive;
   }
 
   onPokeChange(id : number){
     this.selectedPoke=this.pokeService.getPokemon(id);
+  }
+
+  isSelected(poke : Pokemon){
+    console.log(poke);
+    if(this?.selectedPoke != undefined){
+      return poke.id==this.selectedPoke.id;
+    }
+    return false;
   }
 
 }
