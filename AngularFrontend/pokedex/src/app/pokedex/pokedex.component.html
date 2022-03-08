@@ -1,7 +1,7 @@
 <div class="sidebar"></div>
 <poke-header></poke-header>
 <div class="poke-content">
-  <div class="pokecards-container">
+  <div class="pokecards-container" [class.fullcontent] = "!detailsDisplayed">
     <poke-card
       *ngFor="let pokemon of pokeService.getList()"
       class="pokecards-card"
@@ -10,8 +10,10 @@
       [class.selected]="isSelected(pokemon)"
     ></poke-card>
   </div>
-  <div class="separator"></div>
-  <div class="poke-details">
+  <div class="separator">
+    <mat-icon class="details-button" (click)="detailsDisplayed=!detailsDisplayed">swap_vert</mat-icon>
+  </div>
+  <div *ngIf="detailsDisplayed" class="poke-details">
     <poke-details
       [pokemon]="selectedPoke"
       (pokeChange)="onPokeChange($event)"

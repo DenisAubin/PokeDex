@@ -44,6 +44,10 @@ poke-header {
   height: calc(100% / 2);
 }
 
+.fullcontent {
+  height: calc(100% - 2em - 9px);
+}
+
 .pokecards-card {
   flex-basis: 20%;
 }
@@ -60,6 +64,18 @@ poke-header {
   height: 2em;
   border-left: solid;
   border-right: solid;
+
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.details-button{
+  padding-right: 0.5em;
+}
+
+mat-icon:hover{
+  color: whitesmoke;
 }
 
 .poke-details {
