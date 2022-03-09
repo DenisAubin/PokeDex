@@ -1,14 +1,15 @@
 <div class="sidebar">
-  <poke-filters (filterEvent)="nameChange($event)"></poke-filters>
+  <poke-filters (filterEvent)="filtChange($event)"></poke-filters>
 </div>
 <poke-header></poke-header>
 <div class="poke-content">
   <div class="pokecards-container" [class.fullcontent]="!detailsDisplayed">
     <poke-card
-      *ngFor="let pokemon of (pokeService.getList(this.filter))"
+      *ngFor="let pokemon of pokeService.getList(this.filter)"
       class="pokecards-card"
       [pokemon]="pokemon"
       (click)="onPokeClick(pokemon)"
+      (filterEvent)="typeFilterChange($event)"
       [class.selected]="isSelected(pokemon)"
     ></poke-card>
   </div>

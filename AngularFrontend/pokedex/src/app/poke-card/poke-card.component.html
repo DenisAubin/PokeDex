@@ -19,7 +19,16 @@
     />
   </ng-template>
   <mat-card-content>
-    <div>{{ pokemon?.type1 }}</div>
-    <div *ngIf="pokemon?.type2">{{ pokemon?.type2 }}</div>
+    <mat-chip
+      [ngStyle]="{ background: color(pokemon?.type1) }"
+      (click)="updateFilter(pokemon?.type1)"
+      >{{ pokemon?.type1 }}</mat-chip
+    >
+    <mat-chip
+      *ngIf="pokemon?.type2"
+      [ngStyle]="{ background: color(pokemon?.type2) }"
+      (click)="updateFilter(pokemon?.type2)"
+      >{{ pokemon?.type2 }}</mat-chip
+    >
   </mat-card-content>
 </mat-card>

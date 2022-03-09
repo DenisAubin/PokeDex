@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Pokemon } from '../Entity/pokemon';
+import { Pokemon, PokeType } from '../Entity/pokemon';
 import { PokemonServiceService } from '../pokemon-service.service';
 
 @Component({
@@ -40,7 +40,12 @@ export class PokedexComponent implements OnInit {
     return false;
   }
 
-  nameChange(filt: any) {
+  filtChange(filt: any) {
     this.filter = filt;
+  }
+
+  typeFilterChange(type: PokeType) {
+    /* TO-DO prevent pokemon selection on click */
+    this.filter.type = type;
   }
 }
