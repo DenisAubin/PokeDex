@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Pokemon } from '../Entity/pokemon';
 import { PokemonServiceService } from '../pokemon-service.service';
 
@@ -12,8 +12,12 @@ export class PokedexComponent implements OnInit {
   selectedPoke: Pokemon | undefined;
   pokeService: PokemonServiceService;
   detailsDisplayed = false;
+  filter = {
+    name: '',
+    type: '',
+  };
 
-  constructor(pokeService: PokemonServiceService) {
+  constructor(pokeService: PokemonServiceService, fb: FormBuilder) {
     this.pokeService = pokeService;
     this.selectedPoke = undefined;
   }
@@ -30,10 +34,13 @@ export class PokedexComponent implements OnInit {
   }
 
   isSelected(poke: Pokemon) {
-    console.log(poke);
     if (this?.selectedPoke != undefined) {
       return poke.id == this.selectedPoke.id;
     }
     return false;
+  }
+
+  nameChange(filt: any) {
+    this.filter = filt;
   }
 }
