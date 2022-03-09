@@ -28,6 +28,7 @@ poke-header {
 
 .poke-content {
   height: calc(100vh - 4em - 6px);
+  width: calc(100vw - 15em - 6px);
   grid-row: 2;
   grid-column: 2;
 }
@@ -51,6 +52,7 @@ poke-header {
 
 .pokecards-card {
   flex-basis: 20%;
+  height: fit-content;
 }
 
 .selected {
