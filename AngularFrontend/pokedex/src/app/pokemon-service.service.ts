@@ -102,10 +102,10 @@ export class PokemonServiceService {
         return 'grey';
       }
       case PokeType.Spectre: {
-        return 'black';
+        return 'purple';
       }
       case PokeType.Tenebres: {
-        return 'black';
+        return 'purple';
       }
       case PokeType.Vol: {
         return 'blue';

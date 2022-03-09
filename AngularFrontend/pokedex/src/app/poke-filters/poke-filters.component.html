@@ -6,3 +6,8 @@
     (keyup)="updateFilter()"
   />
 </div>
+<div class="type-chips">
+  <mat-chip-list>
+    <mat-chip *ngFor="let type of (types | typesToArray)" [ngStyle]="{ 'background': color(type)}">{{type}}</mat-chip>
+  </mat-chip-list>
+</div>

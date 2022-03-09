@@ -15,6 +15,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { PokeFiltersComponent } from './poke-filters/poke-filters.component';
+import { TypesToArrayPipe } from './types-to-array.pipe';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { PokeFiltersComponent } from './poke-filters/poke-filters.component';
     PokeHeaderComponent,
     PokeDetailsComponent,
     PokeFiltersComponent,
+    TypesToArrayPipe,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,7 @@ import { PokeFiltersComponent } from './poke-filters/poke-filters.component';
     MatIconModule,
     ReactiveFormsModule,
     MatFormFieldModule,
+    MatChipsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
