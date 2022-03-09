@@ -1,1 +1,8 @@
-<input matInput [formControl]="nameControl" (keyup)="updateFilter()" />
+<div class="name-input">
+  <mat-icon class="search-icon">search</mat-icon>
+  <input
+    class="text-input"
+    [formControl]="nameControl"
+    (keyup)="updateFilter()"
+  />
+</div>
