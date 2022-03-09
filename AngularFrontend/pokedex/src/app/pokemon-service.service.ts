@@ -33,7 +33,7 @@ export class PokemonServiceService {
       return pokemon.name.toLowerCase().includes(filter.name);
     });
     if (filter.type != '') {
-      var filteredList = this.pokelist.filter((pokemon) => {
+      var filteredList = filteredList.filter((pokemon) => {
         return pokemon.type1 == filter.type || pokemon.type2 == filter.type;
       });
     }
