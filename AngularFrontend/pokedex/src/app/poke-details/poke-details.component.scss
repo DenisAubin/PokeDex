@@ -19,6 +19,12 @@ img{
   border-radius: 10px;
 }
 
+.details-text{
+  display : flex;
+  flex-direction: column;
+  gap : 1em;
+}
+
 a:hover{
   color: gold;
 }

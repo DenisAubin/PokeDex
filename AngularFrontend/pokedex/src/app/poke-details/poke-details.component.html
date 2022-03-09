@@ -5,7 +5,8 @@
       src="{{ pokemon.img_url }}"
       alt="Photo of a Shiba Inu"
     />
-    <div class="name">{{ pokemon.name }}</div>
+    <div class="details-text">
+      <div class="name">{{ pokemon.name }}</div>
     <div class="id">N°{{ pokemon.id }}</div>
     <div class="type1">Type : {{ pokemon.type1 }}</div>
     <div *ngIf="pokemon.type2" class="type2">- {{ pokemon.type2 }}</div>
@@ -15,6 +16,8 @@
     <a *ngIf="pokemon?.evolves_to" class="evolves_to" (click)="onPokeClick(pokemon?.evolves_to)">
       Evolue en {{ pokeService.getPokemon(pokemon.evolves_to).name }}
     </a>
+    </div>
+
   </div>
 </ng-container>
 
