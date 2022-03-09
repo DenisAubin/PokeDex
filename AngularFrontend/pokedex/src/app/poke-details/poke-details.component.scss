@@ -1,10 +1,10 @@
-:host{
+:host {
   background-color: grey;
-  height: calc(100%/2 - 2em - 12px);
+  height: calc(100% / 2 - 2em - 12px);
   background-color: grey;
 }
 
-.pokeDetails{
+.pokeDetails {
   display: flex;
   flex-direction: row;
   padding-top: 1em;
@@ -12,20 +12,31 @@
   gap: 1em;
 }
 
-img{
+img {
   width: 23em;
   height: 23em;
-  border:solid;
+  border: solid;
   border-radius: 10px;
 }
 
-.details-text{
-  display : flex;
+.details-text {
+  display: flex;
   flex-direction: column;
-  gap : 1em;
+  gap: 1em;
 }
 
-a:hover{
+.name {
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  font-size: 3em;
+}
+
+.types {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+a:hover {
   color: gold;
 }
-
