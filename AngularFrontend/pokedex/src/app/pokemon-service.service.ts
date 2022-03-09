@@ -7,42 +7,49 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PokemonServiceService {
-
   private pokelist: Array<Pokemon>;
   private apiUrl: string;
 
   constructor(private http: HttpClient) {
     this.apiUrl = 'http://localhost:8080/poke/';
-    this.pokelist=[];
-    this.findAll().subscribe(list => this.pokelist = list);
+    this.pokelist = [];
+    this.findAll().subscribe((list) => (this.pokelist = list));
   }
 
   public findAll(): Observable<Pokemon[]> {
-    return this.http.get<Pokemon[]>(this.apiUrl+'pokeList');
+    return this.http.get<Pokemon[]>(this.apiUrl + 'pokeList');
   }
 
   public save(poke: Pokemon) {
     return this.http.post<Pokemon>(this.apiUrl, poke);
   }
 
-  public findById(id :number): Observable<Pokemon>{
-    return this.http.get<Pokemon>(this.apiUrl+ id);
+  public findById(id: number): Observable<Pokemon> {
+    return this.http.get<Pokemon>(this.apiUrl + id);
   }
 
-  public getList() : Pokemon[]{
-    return this.pokelist;
+  public getList(filter: any): Pokemon[] {
+    var filteredList = this.pokelist.filter((pokemon) => {
+      return pokemon.name.toLowerCase().includes(filter.name);
+    });
+    if (filter.type != '') {
+      var filteredList = this.pokelist.filter((pokemon) => {
+        return pokemon.type1 == filter.type || pokemon.type2 == filter.type;
+      });
+    }
+    return filteredList;
   }
 
-  public getPokemon(id:number) : Pokemon{
-    return this.pokelist[id-1];
+  public getPokemon(id: number): Pokemon {
+    return this.pokelist[id - 1];
   }
 
-  public pokeToGradient(poke : Pokemon){
-    if( poke.type1 && poke.type2){
-      const color1=this.typeToColor(poke.type1);
-      const color2=this.typeToColor(poke.type2);
-      return "radial-gradient(circle, " +color1+" 75%, " + color2 + " 100%)";
-    }else{
+  public pokeToGradient(poke: Pokemon) {
+    if (poke.type1 && poke.type2) {
+      const color1 = this.typeToColor(poke.type1);
+      const color2 = this.typeToColor(poke.type2);
+      return 'radial-gradient(circle, ' + color1 + ' 75%, ' + color2 + ' 100%)';
+    } else {
       return this.typeToColor(poke.type1);
     }
   }

@@ -12,6 +12,9 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { PokeDetailsComponent } from './poke-details/poke-details.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { PokeFiltersComponent } from './poke-filters/poke-filters.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,7 @@ import { MatIconModule } from '@angular/material/icon';
     PokeCardComponent,
     PokeHeaderComponent,
     PokeDetailsComponent,
+    PokeFiltersComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +33,8 @@ import { MatIconModule } from '@angular/material/icon';
     ScrollingModule,
     MatButtonModule,
     MatIconModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

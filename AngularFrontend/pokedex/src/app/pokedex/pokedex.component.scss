@@ -23,6 +23,7 @@ poke-header {
   grid-row: 2;
   grid-column: 1;
   background-color: rgb(216, 36, 36);
+  display: flex;
 }
 
 .poke-content {
@@ -83,4 +84,7 @@ mat-icon:hover {
   border: solid;
   margin-left: -3px;
   background-color: grey;
+}
+
+poke-filters {
 }
