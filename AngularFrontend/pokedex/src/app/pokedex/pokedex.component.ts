@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Pokemon } from '../Entity/pokemon';
+import { Pokemon, PokeType } from '../Entity/pokemon';
 import { PokemonServiceService } from '../pokemon-service.service';
 
 @Component({
@@ -25,8 +25,13 @@ export class PokedexComponent implements OnInit {
   ngOnInit(): void {}
 
   onPokeClick(poke: Pokemon) {
-    this.selectedPoke = poke;
-    this.detailsDisplayed = true;
+    if (this.selectedPoke != poke) {
+      this.selectedPoke = poke;
+      this.detailsDisplayed = true;
+    } else {
+      this.selectedPoke = undefined;
+      this.detailsDisplayed = false;
+    }
   }
 
   onPokeChange(id: number) {
@@ -40,7 +45,15 @@ export class PokedexComponent implements OnInit {
     return false;
   }
 
-  nameChange(filt: any) {
+  filtChange(filt: any) {
     this.filter = filt;
+  }
+
+  typeFilterChange(type: PokeType) {
+    if (this.filter.type != type) {
+      this.filter.type = type;
+    } else {
+      this.filter.type = '';
+    }
   }
 }

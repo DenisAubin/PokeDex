@@ -28,13 +28,13 @@ export class PokeFiltersComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  color(type: string) {
+    return this.pokeService.typeToColor(PokeType[<keyof typeof PokeType>type]);
+  }
+
   updateFilter() {
     this.filter.name = this.nameControl.value.toLowerCase();
     this.filterEvent.emit(this.filter);
-  }
-
-  color(type: string) {
-    return this.pokeService.typeToColor(PokeType[<keyof typeof PokeType>type]);
   }
 
   selectType(type: string) {

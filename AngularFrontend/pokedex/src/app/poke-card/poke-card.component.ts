@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Pokemon } from '../Entity/pokemon';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Pokemon, PokeType } from '../Entity/pokemon';
 import { PokemonServiceService } from '../pokemon-service.service';
 
 @Component({
@@ -10,7 +10,22 @@ import { PokemonServiceService } from '../pokemon-service.service';
 export class PokeCardComponent implements OnInit {
   @Input() pokemon: Pokemon | undefined;
 
-  constructor() {}
+  pokeService: PokemonServiceService;
+
+  @Output()
+  filterEvent = new EventEmitter<any>();
+
+  constructor(pokeService: PokemonServiceService) {
+    this.pokeService = pokeService;
+  }
 
   ngOnInit(): void {}
+
+  color(type: PokeType | undefined) {
+    return this.pokeService.typeToColor(type as PokeType);
+  }
+
+  updateFilter(type: PokeType | undefined) {
+    this.filterEvent.emit(type as PokeType);
+  }
 }
