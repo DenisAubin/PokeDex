@@ -40,7 +40,7 @@ import {MatChipsModule} from '@angular/material/chips';
     MatFormFieldModule,
     MatChipsModule,
   ],
-  providers: [],
+  providers: [TypesToArrayPipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
