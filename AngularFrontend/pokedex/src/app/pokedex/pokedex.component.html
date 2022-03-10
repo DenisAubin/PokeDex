@@ -3,9 +3,10 @@
 </div>
 <poke-header></poke-header>
 <div class="poke-content">
-  <div class="pokecards-container" [class.fullcontent]="!detailsDisplayed">
+  <div id="pokecards-container" class="pokecards-container" [class.fullcontent]="!detailsDisplayed">
     <poke-card
       *ngFor="let pokemon of pokeService.getList(this.filter)"
+      id="{{pokemon.id}}"
       class="pokecards-card"
       [pokemon]="pokemon"
       (click)="onPokeClick(pokemon)"

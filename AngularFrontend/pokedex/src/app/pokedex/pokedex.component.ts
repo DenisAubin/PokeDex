@@ -1,6 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  QueryList,
+  ViewChildren,
+} from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Pokemon, PokeType } from '../Entity/pokemon';
+import { PokeCardComponent } from '../poke-card/poke-card.component';
 import { PokemonServiceService } from '../pokemon-service.service';
 
 @Component({
@@ -28,6 +35,7 @@ export class PokedexComponent implements OnInit {
     if (this.selectedPoke != poke) {
       this.selectedPoke = poke;
       this.detailsDisplayed = true;
+      this.scrollToPoke(poke);
     } else {
       this.selectedPoke = undefined;
       this.detailsDisplayed = false;
@@ -55,5 +63,10 @@ export class PokedexComponent implements OnInit {
     } else {
       this.filter.type = '';
     }
+  }
+
+  scrollToPoke(poke: Pokemon) {
+    var topPos = (document.getElementById(poke.id.toString()) as HTMLElement).offsetTop;
+    (window.document.getElementById("pokecards-container") as HTMLElement).scrollTop=topPos -80;
   }
 }
