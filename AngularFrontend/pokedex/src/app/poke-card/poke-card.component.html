@@ -21,13 +21,13 @@
   <mat-card-content>
     <mat-chip
       [ngStyle]="{ background: color(pokemon?.type1) }"
-      (click)="updateFilter(pokemon?.type1)"
+      (click)="updateFilter(pokemon?.type1); $event.stopPropagation()"
       >{{ pokemon?.type1 }}</mat-chip
     >
     <mat-chip
       *ngIf="pokemon?.type2"
       [ngStyle]="{ background: color(pokemon?.type2) }"
-      (click)="updateFilter(pokemon?.type2)"
+      (click)="updateFilter(pokemon?.type2); $event.stopPropagation()"
       >{{ pokemon?.type2 }}</mat-chip
     >
   </mat-card-content>

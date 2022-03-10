@@ -25,8 +25,13 @@ export class PokedexComponent implements OnInit {
   ngOnInit(): void {}
 
   onPokeClick(poke: Pokemon) {
-    this.selectedPoke = poke;
-    this.detailsDisplayed = true;
+    if (this.selectedPoke != poke) {
+      this.selectedPoke = poke;
+      this.detailsDisplayed = true;
+    } else {
+      this.selectedPoke = undefined;
+      this.detailsDisplayed = false;
+    }
   }
 
   onPokeChange(id: number) {
@@ -45,7 +50,10 @@ export class PokedexComponent implements OnInit {
   }
 
   typeFilterChange(type: PokeType) {
-    /* TO-DO prevent pokemon selection on click */
-    this.filter.type = type;
+    if (this.filter.type != type) {
+      this.filter.type = type;
+    } else {
+      this.filter.type = '';
+    }
   }
 }
