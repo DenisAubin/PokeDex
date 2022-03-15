@@ -1,7 +1,7 @@
 
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Pokemon } from '../Entity/pokemon';
-import { PokemonServiceService } from '../pokemon-service.service';
+import { PokemonService } from '../pokemon.service';
 
 @Component({
   selector: 'poke-details',
@@ -11,11 +11,11 @@ import { PokemonServiceService } from '../pokemon-service.service';
 export class PokeDetailsComponent implements OnInit {
   @Input() pokemon: Pokemon | undefined;
 
-  pokeService: PokemonServiceService;
+  pokeService: PokemonService;
 
   @Output() pokeChange : EventEmitter<number> = new EventEmitter<number>();
 
-  constructor(pokeService: PokemonServiceService) {
+  constructor(pokeService: PokemonService) {
     this.pokeService = pokeService;
   }
 

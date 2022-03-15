@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class PokemonServiceService {
+export class PokemonService {
   private pokelist: Array<Pokemon>;
   private apiUrl: string;
 

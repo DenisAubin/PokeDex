@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon, PokeType } from '../Entity/pokemon';
-import { PokemonServiceService } from '../pokemon-service.service';
+import { PokemonService } from '../pokemon.service';
 
 @Component({
   selector: 'pokedex',
@@ -9,14 +9,14 @@ import { PokemonServiceService } from '../pokemon-service.service';
 })
 export class PokedexComponent implements OnInit {
   selectedPoke: Pokemon | undefined;
-  pokeService: PokemonServiceService;
+  pokeService: PokemonService;
   detailsDisplayed = false;
   filter = {
     name: '',
     type: '',
   };
 
-  constructor(pokeService: PokemonServiceService) {
+  constructor(pokeService: PokemonService) {
     this.pokeService = pokeService;
     this.selectedPoke = undefined;
   }

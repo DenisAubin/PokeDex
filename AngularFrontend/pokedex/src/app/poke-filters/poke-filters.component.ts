@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { PokeType } from '../Entity/pokemon';
-import { PokemonServiceService } from '../pokemon-service.service';
+import { PokemonService } from '../pokemon.service';
 
 @Component({
   selector: 'poke-filters',
@@ -17,12 +17,12 @@ export class PokeFiltersComponent implements OnInit {
   types = PokeType;
   nameControl = new FormControl('');
 
-  pokeService: PokemonServiceService;
+  pokeService: PokemonService;
 
   @Output()
   filterEvent = new EventEmitter<any>();
 
-  constructor(pokeService: PokemonServiceService) {
+  constructor(pokeService: PokemonService) {
     this.pokeService = pokeService;
   }
 

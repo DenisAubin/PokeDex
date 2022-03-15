@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { PokemonServiceService } from '../pokemon-service.service';
+import { PokemonService } from '../pokemon.service';
 
 import { PokedexComponent } from './pokedex.component';
 
 describe('PokedexComponent', () => {
   let component: PokedexComponent;
   let fixture: ComponentFixture<PokedexComponent>;
-  const mockedPokemonService = jasmine.createSpyObj('PokemonServiceService', [
+  const mockedPokemonService = jasmine.createSpyObj('PokemonService', [
     'getPokemon','getList'
   ]);
 
@@ -14,7 +14,7 @@ describe('PokedexComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ PokedexComponent ],
       providers: [
-        { provide: PokemonServiceService, useValue: mockedPokemonService },
+        { provide: PokemonService, useValue: mockedPokemonService },
       ],
     })
     .compileComponents();

@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { PokemonServiceService } from '../pokemon-service.service';
+import { PokemonService } from '../pokemon.service';
 import { TypesToArrayPipe } from '../types-to-array.pipe';
 
 import { PokeFiltersComponent } from './poke-filters.component';
@@ -7,12 +7,12 @@ import { PokeFiltersComponent } from './poke-filters.component';
 describe('PokeFiltersComponent', () => {
   let component: PokeFiltersComponent;
   let fixture: ComponentFixture<PokeFiltersComponent>;
-  const mockedPokemonService = jasmine.createSpyObj('PokemonServiceService', ['typeToColor']);
+  const mockedPokemonService = jasmine.createSpyObj('PokemonService', ['typeToColor']);
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ PokeFiltersComponent, TypesToArrayPipe ],
-      providers: [{provide: PokemonServiceService, useValue:mockedPokemonService}]
+      providers: [{provide: PokemonService, useValue:mockedPokemonService}]
     })
     .compileComponents();
   });

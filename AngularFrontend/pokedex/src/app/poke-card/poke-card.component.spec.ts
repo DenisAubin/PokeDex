@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { PokemonServiceService } from '../pokemon-service.service';
+import { PokemonService } from '../pokemon.service';
 
 import { PokeCardComponent } from './poke-card.component';
 
 describe('PokeCardComponent', () => {
   let component: PokeCardComponent;
   let fixture: ComponentFixture<PokeCardComponent>;
-  const mockedPokemonService = jasmine.createSpyObj('PokemonServiceService', ['typeToColor']);
+  const mockedPokemonService = jasmine.createSpyObj('PokemonService', ['typeToColor']);
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ PokeCardComponent ],
-      providers: [{provide: PokemonServiceService, useValue:mockedPokemonService}]
+      providers: [{provide: PokemonService, useValue:mockedPokemonService}]
     })
     .compileComponents();
   });
